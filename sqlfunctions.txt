@@ -1,0 +1,960 @@
+
+String Functions:
+
+
+mysql> select ascii('t');
++------------+
+| ascii('t') |
++------------+
+|        116 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select ascii('a');
++------------+
+| ascii('a') |
++------------+
+|         97 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select bin(10);
++---------+
+| bin(10) |
++---------+
+| 1010    |
++---------+
+1 row in set (0.06 sec)
+
+mysql> select bin(15);
++---------+
+| bin(15) |
++---------+
+| 1111    |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select bit_length(10)
+    -> 1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1' at line 2
+mysql>  select bit_length(10);
++----------------+
+| bit_length(10) |
++----------------+
+|             16 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select bit_length('keerthi');
++-----------------------+
+| bit_length('keerthi') |
++-----------------------+
+|                    56 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select bit_length(keerthi);
+ERROR 1054 (42S22): Unknown column 'keerthi' in 'field list'
+mysql> select char_length('keerthi')
+    -> 1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1' at line 2
+mysql> select char_length('keerthi');
++------------------------+
+| char_length('keerthi') |
++------------------------+
+|                      7 |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select char(98);
++--------------------+
+| char(98)           |
++--------------------+
+| 0x62               |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select char(1);
++------------------+
+| char(1)          |
++------------------+
+| 0x01             |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select char(97)
+    -> 1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1' at line 2
+mysql> select char(98);
++--------------------+
+| char(98)           |
++--------------------+
+| 0x62               |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select character_length('keerthi');
++-----------------------------+
+| character_length('keerthi') |
++-----------------------------+
+|                           7 |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select len('keerthi');
+ERROR 1046 (3D000): No database selected
+mysql> use keerthidb;
+Database changed
+mysql> select len('sravanthi');
+ERROR 1305 (42000): FUNCTION keerthidb.len does not exist
+mysql> select concat_ws('_','today','is','a','sunday');
++------------------------------------------+
+| concat_ws('_','today','is','a','sunday') |
++------------------------------------------+
+| today_is_a_sunday                        |
++------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select concat('keerthi'||'is'||'a'||'good'||'girl');
++----------------------------------------------+
+| concat('keerthi'||'is'||'a'||'good'||'girl') |
++----------------------------------------------+
+| 0                                            |
++----------------------------------------------+
+1 row in set, 9 warnings (0.02 sec)
+
+mysql> select concat('keerthi','sraanthi');
++------------------------------+
+| concat('keerthi','sraanthi') |
++------------------------------+
+| keerthisraanthi              |
++------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select concat('sravanthi','keerthi');
++-------------------------------+
+| concat('sravanthi','keerthi') |
++-------------------------------+
+| sravanthikeerthi              |
++-------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select elt(5,'i','am','from','nellore');
++----------------------------------+
+| elt(5,'i','am','from','nellore') |
++----------------------------------+
+| NULL                             |
++----------------------------------+
+1 row in set (0.00 sec)
+
+mysql>  select elt(4,'i','am','from','nellore');
++----------------------------------+
+| elt(4,'i','am','from','nellore') |
++----------------------------------+
+| nellore                          |
++----------------------------------+
+1 row in set (0.00 sec)
+
+mysql>  select elt(3,'i','am','from','nellore');
++----------------------------------+
+| elt(3,'i','am','from','nellore') |
++----------------------------------+
+| from                             |
++----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select find_in_set('keerthi','a,d,c,keerthi,e,f,');
++---------------------------------------------+
+| find_in_set('keerthi','a,d,c,keerthi,e,f,') |
++---------------------------------------------+
+|                                           4 |
++---------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> format("0.100","percent");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'format("0.100","percent")' at line 1
+mysql> select format("0.9812","percent");
++----------------------------+
+| format("0.9812","percent") |
++----------------------------+
+| 1                          |
++----------------------------+
+1 row in set, 1 warning (0.01 sec)
+
+mysql> select format("0.100","percent");
++---------------------------+
+| format("0.100","percent") |
++---------------------------+
+| 0                         |
++---------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select format("0.99812","percent");
++-----------------------------+
+| format("0.99812","percent") |
++-----------------------------+
+| 1                           |
++-----------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select instr('keerthi','t');
++----------------------+
+| instr('keerthi','t') |
++----------------------+
+|                    5 |
++----------------------+
+1 row in set (0.05 sec)
+
+mysql> select lcase('KEERTHI');
++------------------+
+| lcase('KEERTHI') |
++------------------+
+| keerthi          |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select left('keerthisravanthi',8);
++----------------------------+
+| left('keerthisravanthi',8) |
++----------------------------+
+| keerthis                   |
++----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select length('keerthisravanthi');
++----------------------------+
+| length('keerthisravanthi') |
++----------------------------+
+|                         16 |
++----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select locate('is','keerthi is a good girl');
++---------------------------------------+
+| locate('is','keerthi is a good girl') |
++---------------------------------------+
+|                                     9 |
++---------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select locate('is','keerthi is a good girl',1);
++-----------------------------------------+
+| locate('is','keerthi is a good girl',1) |
++-----------------------------------------+
+|                                       9 |
++-----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select locate('is','a','keerthi is a good girl',2);
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'locate'
+mysql> select lpad('keerthi',15,'a');
++------------------------+
+| lpad('keerthi',15,'a') |
++------------------------+
+| aaaaaaaakeerthi        |
++------------------------+
+1 row in set (0.04 sec)
+
+mysql> select ltrim('keerthisravanthikeerthi','keerthi');
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'ltrim'
+mysql> select ltrim('keerthisravanthi','keerthi');
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'ltrim'
+mysql> ltrim('keerthisravanthi','keerthi');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ltrim('keerthisravanthi','keerthi')' at line 1
+mysql> select mid('keerthi',4,2);
++--------------------+
+| mid('keerthi',4,2) |
++--------------------+
+| rt                 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select position('e' in 'keerthi');
++----------------------------+
+| position('e' in 'keerthi') |
++----------------------------+
+|                          2 |
++----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select position('e' in 'sravanthi');
++------------------------------+
+| position('e' in 'sravanthi') |
++------------------------------+
+|                            0 |
++------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select repeat('keerthi',5);
++-------------------------------------+
+| repeat('keerthi',5)                 |
++-------------------------------------+
+| keerthikeerthikeerthikeerthikeerthi |
++-------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select replace('123keerthi123','123');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> select reverse('keerthi');
++--------------------+
+| reverse('keerthi') |
++--------------------+
+| ihtreek            |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select right('keerthi'4);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '4)' at line 1
+mysql> select right('keerthi',4);
++--------------------+
+| right('keerthi',4) |
++--------------------+
+| rthi               |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select rpad('keerthi',15,'o');
++------------------------+
+| rpad('keerthi',15,'o') |
++------------------------+
+| keerthioooooooo        |
++------------------------+
+1 row in set (0.05 sec)
+
+mysql> select rpad('keerthi',6,'o');
++-----------------------+
+| rpad('keerthi',6,'o') |
++-----------------------+
+| keerth                |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select rtrim('sravanthi123123','123');
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'rtrim'
+mysql> select space(15);
++-----------------+
+| space(15)       |
++-----------------+
+|                 |
++-----------------+
+1 row in set (0.02 sec)
+
+mysql> select space(55);
++---------------------------------------------------------+
+| space(55)                                               |
++---------------------------------------------------------+
+|                                                         |
++---------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select strcmp('keerthi','sravanthi');
++-------------------------------+
+| strcmp('keerthi','sravanthi') |
++-------------------------------+
+|                            -1 |
++-------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select substring('keerthi',5,1);
++--------------------------+
+| substring('keerthi',5,1) |
++--------------------------+
+| t                        |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> select substring('kee.rthi','e');
++---------------------------+
+| substring('kee.rthi','e') |
++---------------------------+
+|                           |
++---------------------------+
+1 row in set, 2 warnings (0.00 sec)
+
+mysql> select substring('kee.rthi','.');
++---------------------------+
+| substring('kee.rthi','.') |
++---------------------------+
+|                           |
++---------------------------+
+1 row in set, 2 warnings (0.00 sec)
+
+mysql> select substring_index('kee.rthi','.');
+ERROR 1582 (42000): Incorrect parameter count in the call to native function 'substring_index'
+mysql> select substring_index('kee.rthi','.','1');
++-------------------------------------+
+| substring_index('kee.rthi','.','1') |
++-------------------------------------+
+| kee                                 |
++-------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select trim(leading 'o' from'00034568');
++----------------------------------+
+| trim(leading 'o' from'00034568') |
++----------------------------------+
+| 00034568                         |
++----------------------------------+
+1 row in set (0.05 sec)
+
+mysql> select trim(leading '0' from'00034568');
++----------------------------------+
+| trim(leading '0' from'00034568') |
++----------------------------------+
+| 34568                            |
++----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select ucase('KeerTHI');
++------------------+
+| ucase('KeerTHI') |
++------------------+
+| KEERTHI          |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select export_set(9,'on','off',',',4);
++--------------------------------+
+| export_set(9,'on','off',',',4) |
++--------------------------------+
+| on,off,off,on                  |
++--------------------------------+
+1 row in set (0.04 sec)
+
+mysql> select field("k","k","l","m","n");
++----------------------------+
+| field("k","k","l","m","n") |
++----------------------------+
+|                          1 |
++----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select hex(255);
++----------+
+| hex(255) |
++----------+
+| FF       |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select make_set(1|4,'hello','hai','eeryone');
++---------------------------------------+
+| make_set(1|4,'hello','hai','eeryone') |
++---------------------------------------+
+| hello,eeryone                         |
++---------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select make_set(1|3,'hello','hai','eeryone');
++---------------------------------------+
+| make_set(1|3,'hello','hai','eeryone') |
++---------------------------------------+
+| hello,hai                             |
++---------------------------------------+
+1 row in set (0.00 sec)
+
+Numeric Functions:
+
+mysql> select abs(-99.00);
++-------------+
+| abs(-99.00) |
++-------------+
+|       99.00 |
++-------------+
+1 row in set (0.04 sec)
+
+mysql> select acos(0.25);
++-------------------+
+| acos(0.25)        |
++-------------------+
+| 1.318116071652818 |
++-------------------+
+1 row in set (0.05 sec)
+
+mysql> select asin(0.25);
++---------------------+
+| asin(0.25)          |
++---------------------+
+| 0.25268025514207865 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select atan(0.25);
++---------------------+
+| atan(0.25)          |
++---------------------+
+| 0.24497866312686414 |
++---------------------+
+1 row in set (0.05 sec)
+
+mysql> select ceil(75.25);
++-------------+
+| ceil(75.25) |
++-------------+
+|          76 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select ceiling(75.25);
++----------------+
+| ceiling(75.25) |
++----------------+
+|             76 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select cos(45);
++--------------------+
+| cos(45)            |
++--------------------+
+| 0.5253219888177297 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select cot(45);
++--------------------+
+| cot(45)            |
++--------------------+
+| 0.6173696237835551 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select degrees(1.5);
++-------------------+
+| degrees(1.5)      |
++-------------------+
+| 85.94366926962348 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select degrees(pi());
++---------------+
+| degrees(pi()) |
++---------------+
+|           180 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select log(2);
++--------------------+
+| log(2)             |
++--------------------+
+| 0.6931471805599453 |
++--------------------+
+1 row in set (0.04 sec)
+
+mysql> select log2(2);
++---------+
+| log2(2) |
++---------+
+|       1 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select mod(45,9);
++-----------+
+| mod(45,9) |
++-----------+
+|         0 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select mod(26,9);
++-----------+
+| mod(26,9) |
++-----------+
+|         8 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select pi();
++----------+
+| pi()     |
++----------+
+| 3.141593 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select pow(4,2);
++----------+
+| pow(4,2) |
++----------+
+|       16 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select radians(180);
++-------------------+
+| radians(180)      |
++-------------------+
+| 3.141592653589793 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select rand();
++---------------------+
+| rand()              |
++---------------------+
+| 0.49410414928021296 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select round(79.8);
++-------------+
+| round(79.8) |
++-------------+
+|          80 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select sign(97);
++----------+
+| sign(97) |
++----------+
+|        1 |
++----------+
+1 row in set (0.04 sec)
+
+mysql> select sin(45);
++--------------------+
+| sin(45)            |
++--------------------+
+| 0.8509035245341184 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select sqrt(45);
++-------------------+
+| sqrt(45)          |
++-------------------+
+| 6.708203932499369 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select truncate(45.4567);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> select tan(45.4567);
++-------------------+
+| tan(45.4567)      |
++-------------------+
+| 10.34199487431655 |
++-------------------+
+1 row in set (0.06 sec)
+
+mysql> select tan(45);
++--------------------+
+| tan(45)            |
++--------------------+
+| 1.6197751905438615 |
++--------------------+
+1 row in set (0.00 sec)
+
+DATE AND TIME:
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 20
+Server version: 8.0.21 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select now();
++---------------------+
+| now()               |
++---------------------+
+| 2020-11-22 19:43:22 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select curdate();
++------------+
+| curdate()  |
++------------+
+| 2020-11-22 |
++------------+
+1 row in set (0.05 sec)
+
+mysql> select curtime();
++-----------+
+| curtime() |
++-----------+
+| 19:43:48  |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select date_add(22,15);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '15)' at line 1
+mysql> select date_add(22,interval 15);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> select datediff('2017-01-01','2020-01-01');
++-------------------------------------+
+| datediff('2017-01-01','2020-01-01') |
++-------------------------------------+
+|                               -1095 |
++-------------------------------------+
+1 row in set (0.05 sec)
+
+mysql> select date_format(now(),'%d %b %y');
++-------------------------------+
+| date_format(now(),'%d %b %y') |
++-------------------------------+
+| 22 Nov 20                     |
++-------------------------------+
+1 row in set (0.05 sec)
+
+mysql> select date_format(now(),'%d %b %y');
++-------------------------------+
+| date_format(now(),'%d %b %y') |
++-------------------------------+
+| 22 Nov 20                     |
++-------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT ADDTIME("2018-07-16 02:52:47", "2");
++-------------------------------------+
+| ADDTIME("2018-07-16 02:52:47", "2") |
++-------------------------------------+
+| 2018-07-16 02:52:49                 |
++-------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT CURRENT_TIMESTAMP();
++---------------------+
+| CURRENT_TIMESTAMP() |
++---------------------+
+| 2020-11-22 20:02:28 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DATE_ADD("2018-07-16", INTERVAL 10 DAY);
++-----------------------------------------+
+| DATE_ADD("2018-07-16", INTERVAL 10 DAY) |
++-----------------------------------------+
+| 2018-07-26                              |
++-----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DATE_SUB("2017-06-15", INTERVAL 10 DAY);
++-----------------------------------------+
+| DATE_SUB("2017-06-15", INTERVAL 10 DAY) |
++-----------------------------------------+
+| 2017-06-05                              |
++-----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql>  SELECT DAY("2018-07-16");
++-------------------+
+| DAY("2018-07-16") |
++-------------------+
+|                16 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DAYNAME('2008-05-15');
++-----------------------+
+| DAYNAME('2008-05-15') |
++-----------------------+
+| Thursday              |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DAYOFMONTH('2018-07-16');
++--------------------------+
+| DAYOFMONTH('2018-07-16') |
++--------------------------+
+|                       16 |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT WEEKDAY("2018-07-16");
++-----------------------+
+| WEEKDAY("2018-07-16") |
++-----------------------+
+|                     0 |
++-----------------------+
+1 row in set (0.04 sec)
+
+mysql> SELECT DAYOFYEAR("2018-07-16");
++-------------------------+
+| DAYOFYEAR("2018-07-16") |
++-------------------------+
+|                     197 |
++-------------------------+
+1 row in set (0.06 sec)
+
+mysql> SELECT EXTRACT(MONTH FROM "2018-07-16");
++----------------------------------+
+| EXTRACT(MONTH FROM "2018-07-16") |
++----------------------------------+
+|                                7 |
++----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT FROM_DAYS(685467)
+    -> 1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1' at line 2
+mysql> SELECT FROM_DAYS(685467);
++-------------------+
+| FROM_DAYS(685467) |
++-------------------+
+| 1876-09-29        |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT LAST_DAY('2018-07-16');
++------------------------+
+| LAST_DAY('2018-07-16') |
++------------------------+
+| 2018-07-31             |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT LOCALTIME();
++---------------------+
+| LOCALTIME()         |
++---------------------+
+| 2020-11-22 20:07:02 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MAKEDATE(2009, 138);
++---------------------+
+| MAKEDATE(2009, 138) |
++---------------------+
+| 2009-05-18          |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql>  SELECT MAKETIME(11, 35, 4);
++---------------------+
+| MAKETIME(11, 35, 4) |
++---------------------+
+| 11:35:04            |
++---------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT MICROSECOND("2018-07-18 09:12:00.000345");
++-------------------------------------------+
+| MICROSECOND("2018-07-18 09:12:00.000345") |
++-------------------------------------------+
+|                                       345 |
++-------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MINUTE("2018-07-18 09:12:00");
++-------------------------------+
+| MINUTE("2018-07-18 09:12:00") |
++-------------------------------+
+|                            12 |
++-------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MONTH ('2018/07/18')AS MONTH;
++-------+
+| MONTH |
++-------+
+|     7 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MONTH ('2018/07/18')AS MONTH;
++-------+
+| MONTH |
++-------+
+|     7 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT PERIOD_ADD(201803, 6);
++-----------------------+
+| PERIOD_ADD(201803, 6) |
++-----------------------+
+|                201809 |
++-----------------------+
+1 row in set (0.05 sec)
+
+mysql> SELECT PERIOD_DIFF(201810, 201802);
++-----------------------------+
+| PERIOD_DIFF(201810, 201802) |
++-----------------------------+
+|                           8 |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT QUARTER("2018/07/18");
++-----------------------+
+| QUARTER("2018/07/18") |
++-----------------------+
+|                     3 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT SEC_TO_TIME(1);
++----------------+
+| SEC_TO_TIME(1) |
++----------------+
+| 00:00:01       |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT STR_TO_DATE("JULY 18 2018", "%M %D %Y");
++-----------------------------------------+
+| STR_TO_DATE("JULY 18 2018", "%M %D %Y") |
++-----------------------------------------+
+| 0018-07-18                              |
++-----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT SYSDATE();
++---------------------+
+| SYSDATE()           |
++---------------------+
+| 2020-11-22 20:10:51 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT TIME_FORMAT("09:16:10", "%H %I %S");
++-------------------------------------+
+| TIME_FORMAT("09:16:10", "%H %I %S") |
++-------------------------------------+
+| 09 09 10                            |
++-------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT TO_DAYS("2018-07-18");
++-----------------------+
+| TO_DAYS("2018-07-18") |
++-----------------------+
+|                737258 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT WEEKDAY("2018-07-18");
++-----------------------+
+| WEEKDAY("2018-07-18") |
++-----------------------+
+|                     2 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT YEAR("2018-07-18");
++--------------------+
+| YEAR("2018-07-18") |
++--------------------+
+|               2018 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT YEAR("2018-07-18");
++--------------------+
+| YEAR("2018-07-18") |
++--------------------+
+|               2018 |
++--------------------+
+1 row in set (0.00 sec)
+
