@@ -1,0 +1,42 @@
+OnlineFoodOrderingDB
+1. Create a Table called Restaurants
+	RestaurantID(PK,Auto), RestaurantName , RestaurantAddress , RestaurantCity , ContactNo
+2. Create a Table called RMenuItems
+	MenuID (PK , Auto) ,RestID (FK), MenuName , MenuType , MenuCategory , MenuPrice , MenuDesc
+3. Create a Table called Customers
+	CustomerID (PK, Email) , CustomerName , CustomerCity , CustomerDOB , CustomerGender , CustomerPassword
+4. Create a table called Orders
+	OrderID (PK, Auto) , CustomerID (FK) , OrderDate , DeliveryAddress , OrderStatus
+5. Create a table called OrderMenus
+	OrderID (FK) , MenuID(FK) , MenuQty , MenuPrice 
+	Note : OrderID & MenuID should be together primary key.
+
+Add some dummy data in the tables.
+
+Reports / Queries
+
+1. Show the list of Restaurant of specific city
+
+command:select * from restaurants in(select rname from restaurants where rcity='andhra');
+
+2. Show the list of all Restaurants along with menus (RestaurantID , RestaurantName ,MenuID , MenuName , MenuPrice)
+
+command:select rid,rname,mid ,mname,mprice from restaurants as r right join rmenuitems as m on r.rid=m.mid; 
+
+3. Show the list of  Restaurants along with menus (RestaurantID , RestaurantName ,MenuID , MenuName , MenuPrice) of specific city.
+4. Show the list of Orders of a specific customer
+command: select * from orders where oid=17;
+
+5. Show the list of orders along with ordermenus of a specific customer
+command:select * from orders as o right join omenus as om on o.oid=om.omid; 
+
+6. Show the list of latest 5 orders of a specific customer
+command:select * from rmenuitems orderby mname asc;
+
+7. Show the list of restaurant which never get any order.
+8. Show the list of top ten selling menu item
+
+
+
+
+

@@ -1,0 +1,44 @@
+1. Write a query to display the name ( first name and last name ), salary, department id, job id for those employees who works in the same designation as the employee works whose id is 169.
+
+  command:
+                 select concat(fname," ",lname) as fname,salary,deptid,jobid from employee where designation=(select designation from                   employee where jobid=169);
+
+
+
+- 2.Write a query to display the name ( first name and last name ), salary, department id for those employees who earn such amount of salary which is the smallest salary of any of the departments.
+
+command:
+               select concat(fname," ",lname) as fname,salary,deptid from employee where salary in(select min(salary) from employee);
+
+
+-Write a query to display the employee id, employee name (first name and last name ) for all employees who earn more than the average salary.
+
+command:
+              select concat(fname," ",lname) as fname,salary,deptid from employee where salary >(select avg(salary) from employee);
+
+
+- Write a query to display the employee name ( first name and last name ), employee id and salary of all employees who report to shiva
+
+command:
+               select concat(fname," ",lname) as fname,salary,jobid from employee;
+
+
+- Write a query to display all the information of an employee whose salary and reporting person id is 30000 and 121 respectively.
+
+command:
+               select * from employee where (salary,jobid)=(select 30000,121);
+
+- Display all the information of an employee whose id is any of the number 134, 159 and 183.
+
+command:
+              select * from employee where jobid in(134,159,183);
+
+- Write a query to display all the information of the employees whose salary is within the range 10000 and 30000.
+
+command: 
+               select * from employee  where salary in(select salary from employee where salary>10000 and salary<30000);
+
+- Write a query to display all the information of the employees whose salary is within the range of smallest salary and 25000.
+
+command:
+              select * from employee  where salary in(select salary from employee where salary>15000 and salary<25000);
